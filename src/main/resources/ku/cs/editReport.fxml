@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" styleClass="background3" stylesheets="@style/light_mode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.staff.EditReportController">
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1024.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="19.0" prefWidth="11.0" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="1.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="back-button" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Circle fx:id="accountCircleImage" fill="DODGERBLUE" radius="23.0" stroke="BLACK" strokeType="INSIDE" styleClass="circle">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Circle>
+                  <Label fx:id="staffNameLabelTop" onMouseClicked="#gotoAccountPage" prefHeight="29.0" prefWidth="713.0" styleClass="white-label" text="accountStaffNameLabel" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="71.0" prefWidth="103.0" />
+                  <AnchorPane prefHeight="71.0" prefWidth="70.0">
+                     <children>
+                        <Button layoutX="51.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="23.0" styleClass="setting-button" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="27.0">
+                           <font>
+                              <Font size="1.0" />
+                           </font>
+                        </Button>
+                        <MenuButton fx:id="menuButton" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="23.0">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#changeMode" text="ตั้งค่า" />
+                              <MenuItem mnemonicParsing="false" onAction="#gotoLoginPage" text="ออกจากระบบ" />
+                           </items>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="transparent" />
+                              <String fx:value="small-size-font" />
+                           </styleClass>
+                        </MenuButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="699.0" prefWidth="824.0" styleClass="report-background">
+                     <children>
+                        <VBox prefHeight="562.0" prefWidth="824.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="517.0">
+                                 <children>
+                                    <Label fx:id="titleLabel" prefHeight="30.0" prefWidth="631.0" text="เรื่องร้องเรียน">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="24.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="25.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label text="วันที่">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="35.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="dateLabel" text="-">
+                                       <HBox.margin>
+                                          <Insets left="5.0" top="35.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="824.0">
+                                 <children>
+                                    <Label fx:id="categoryLabel" alignment="CENTER" prefHeight="29.0" prefWidth="157.0" styleClass="category-box" text="หมวดหมู่" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="25.0" top="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Tahoma Bold" size="14.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="457.0" prefWidth="824.0">
+                                 <children>
+                                    <ScrollPane prefWidth="824.0" styleClass="transparent">
+                                       <content>
+                                          <VBox prefWidth="804.0">
+                                             <children>
+                                                <HBox prefHeight="46.0" prefWidth="804.0">
+                                                   <children>
+                                                      <Label prefHeight="61.0" prefWidth="201.0" styleClass="medium-size-font" text="รายละเอียดเรื่องร้องเรียน :">
+                                                         <font>
+                                                            <Font name="Tahoma" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="30.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Label fx:id="detailLabel" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="723.0" text="Label" wrapText="true" HBox.hgrow="ALWAYS">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <styleClass>
+                                                            <String fx:value="border" />
+                                                            <String fx:value="small-size-font" />
+                                                         </styleClass>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="33.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <HBox fx:id="moreFirstHBox" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" VBox.vgrow="ALWAYS" />
+                                                <HBox fx:id="moreSecondHBox" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" VBox.vgrow="ALWAYS" />
+                                                <HBox fx:id="moreThirdHBox" layoutX="10.0" layoutY="172.0" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" VBox.vgrow="ALWAYS" />
+                                                <HBox fx:id="moreFourthHBox" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" VBox.vgrow="ALWAYS" />
+                                                <HBox fx:id="photoHBox1" layoutX="10.0" layoutY="112.0" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" />
+                                                <HBox fx:id="photoHBox2" layoutX="10.0" layoutY="156.0" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" />
+                                                <HBox fx:id="photoHBox3" layoutX="10.0" layoutY="156.0" prefHeight="0.0" prefWidth="804.0" styleClass="medium-size-font" />
+                                                <HBox layoutX="10.0" layoutY="125.0" prefHeight="41.0" prefWidth="804.0">
+                                                   <children>
+                                                      <Label prefHeight="61.0" prefWidth="121.0" styleClass="medium-size-font" text="วิธีการจัดการ :">
+                                                         <font>
+                                                            <Font name="Tahoma" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="30.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox prefHeight="125.0" prefWidth="804.0">
+                                                   <children>
+                                                      <TextArea fx:id="howToTextArea" prefHeight="125.0" prefWidth="727.0" promptText="type something..." styleClass="small-size-font" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <padding>
+                                                            <Insets bottom="7.0" left="5.0" right="7.0" top="7.0" />
+                                                         </padding>
+                                                      </TextArea>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="30.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="240.0" prefHeight="57.0" prefWidth="806.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Label prefHeight="72.0" prefWidth="91.0" styleClass="medium-size-font" text="สถานะ :">
+                                                         <font>
+                                                            <Font name="Tahoma" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="30.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ChoiceBox fx:id="choiceBox" prefHeight="35.0" prefWidth="176.0">
+                                                         <HBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </HBox.margin>
+                                                         <styleClass>
+                                                            <String fx:value="combo-box" />
+                                                            <String fx:value="semiMedium-size-font" />
+                                                         </styleClass>
+                                                         <padding>
+                                                            <Insets left="5.0" />
+                                                         </padding>
+                                                      </ChoiceBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="355.0" prefHeight="43.0" prefWidth="804.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Label prefHeight="72.0" prefWidth="91.0" styleClass="medium-size-font" text="เจ้าหน้าที่ :">
+                                                         <font>
+                                                            <Font name="Tahoma" size="16.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="30.0" top="5.0" />
+                                                         </HBox.margin>
+                                                         <padding>
+                                                            <Insets top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="staffNameLabel" prefHeight="38.0" prefWidth="201.0" styleClass="semiMedium-size-font" text="staffLabel">
+                                                         <font>
+                                                            <Font name="Tahoma" size="15.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </HBox.margin>
+                                                         <padding>
+                                                            <Insets top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="32.0" prefWidth="69.0" text="บันทึก">
+                                                         <styleClass>
+                                                            <String fx:value="button1" />
+                                                            <String fx:value="shadow-around" />
+                                                            <String fx:value="medium-size-font" />
+                                                         </styleClass>
+                                                         <font>
+                                                            <Font size="16.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="70.0" left="100.0" right="100.0" top="50.0" />
+                     </VBox.margin>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

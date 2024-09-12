@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" prefHeight="750.0" prefWidth="1024.0" styleClass="background3" stylesheets="@style/light_mode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.admin.ReportController">
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1024.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="19.0" prefWidth="11.0" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="1.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="back-button" />
+                     </styleClass>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label fx:id="staffNameLabel" prefHeight="29.0" prefWidth="902.0" text="Admin" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="white-label" />
+                        <String fx:value="font-bold" />
+                     </styleClass>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#changeMode" prefWidth="15.0" styleClass="transparent">
+                     <graphic>
+                        <ImageView fx:id="modeImage" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/sun.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="697.0" prefWidth="243.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="244.0">
+                     <children>
+                        <ImageView fx:id="imageUser" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/user.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleUserButton" prefHeight="44.0" prefWidth="199.0" text="ผู้ใช้ระบบ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="size-font" />
+                              <String fx:value="button4" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="244.0">
+                     <children>
+                        <ImageView fx:id="imageStaff" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/staff.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleStaffButton" prefHeight="44.0" prefWidth="200.0" text="เจ้าหน้าที่">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="size-font" />
+                              <String fx:value="button4" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="244.0">
+                     <children>
+                        <ImageView fx:id="imageAdmin" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/admin.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleAdminButton" prefHeight="44.0" prefWidth="193.0" text="แก้ไขรหัสผ่าน">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="size-font" />
+                              <String fx:value="button4" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="40.0" prefWidth="224.0">
+                     <children>
+                        <Separator prefHeight="3.0" prefWidth="239.0" styleClass="line">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Separator>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="61.0" prefWidth="251.0" style="-fx-background-color: #a5cc9f #a5cc9f;">
+                     <children>
+                        <ImageView fx:id="imageReport" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/comment-alert.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="61.0" prefWidth="199.0" text="รายงานความไม่เหมาะสม">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <styleClass>
+                              <String fx:value="size-font" />
+                              <String fx:value="transparent" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="241.0">
+                     <children>
+                        <ImageView fitHeight="29.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/alert.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#handleBannedUserListButton" prefHeight="29.0" prefWidth="195.0" text="ผู้ถูกระงับการใช้งาน">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="size-font" />
+                              <String fx:value="button4" />
+                           </styleClass>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <styleClass>
+                  <String fx:value="background5" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="372.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="67.0" prefWidth="387.0">
+                     <children>
+                        <Label styleClass="font-bold" text="เรื่องร้องเรียนที่ถูกรายงาน">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="614.0" prefWidth="387.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane prefHeight="634.0" prefWidth="387.0" styleClass="transparent">
+                           <content>
+                              <GridPane fx:id="reportedGrid" prefHeight="0.0" prefWidth="33.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <padding>
+                              <Insets bottom="10.0" left="7.0" />
+                           </padding>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <VBox fx:id="chosenReport" prefHeight="679.0" prefWidth="412.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="444.0">
+                     <children>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="41.0" prefWidth="179.0">
+                           <children>
+                              <Label fx:id="categoryLabel" alignment="CENTER" prefHeight="28.0" prefWidth="150.0" stylesheets="@style/light_mode.css" text="หมวดหมู่" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Tahoma Bold" size="12.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <styleClass>
+                                    <String fx:value="category-box" />
+                                    <String fx:value="font-bold" />
+                                 </styleClass>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="41.0" prefWidth="207.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleBanUserButton" prefHeight="37.0" prefWidth="137.0" text="ลบโพสต์">
+                                 <styleClass>
+                                    <String fx:value="button-report" />
+                                    <String fx:value="font-bold" />
+                                    <String fx:value="small-size-font" />
+                                 </styleClass>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#handleIgnoreButton" prefHeight="27.0" prefWidth="125.0" text="ไม่สนใจ">
+                                 <styleClass>
+                                    <String fx:value="button3" />
+                                    <String fx:value="small-size-font" />
+                                    <String fx:value="font-bold" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="68.0" prefWidth="444.0">
+                     <children>
+                        <Label fx:id="titleLabel" prefHeight="36.0" prefWidth="327.0" styleClass="size-font" text="title">
+                           <font>
+                              <Font name="Tahoma" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="455.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="112.0" styleClass="medium-size-font" text="วันที่ร้องเรียน : ">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="dateReportLabel" alignment="TOP_LEFT" prefHeight="136.0" prefWidth="162.0" styleClass="medium-size-font" text="dateReportLabel">
+                           <font>
+                              <Font name="Tahoma" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="573.0" prefWidth="444.0">
+                     <children>
+                        <ScrollPane prefHeight="585.0" prefWidth="444.0" styleClass="transparent">
+                           <content>
+                              <VBox prefWidth="382.0">
+                                 <children>
+                                    <HBox prefHeight="37.0" prefWidth="427.0">
+                                       <children>
+                                          <Label prefHeight="113.0" prefWidth="175.0" styleClass="semiMedium-size-font" text="รายละเอียดเรื่องร้องเรียน :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="115.0" prefWidth="541.0">
+                                       <children>
+                                          <Label fx:id="detailReportLabel" alignment="TOP_LEFT" prefHeight="218.0" prefWidth="455.0" styleClass="semiMedium-size-font" text="เนื้อหาเรื่องร้องเรียน" wrapText="true">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" right="9.0" />
+                                       </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="detail-box" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </HBox>
+                                    <HBox fx:id="moreFirstHBox" prefWidth="424.0" VBox.vgrow="ALWAYS" />
+                                    <HBox fx:id="moreSecondHBox" prefWidth="424.0" VBox.vgrow="ALWAYS" />
+                                    <HBox fx:id="moreThirdHBox" layoutX="10.0" layoutY="172.0" prefHeight="0.0" prefWidth="382.0" />
+                                    <HBox fx:id="moreFourthHBox" prefWidth="424.0" />
+                                    <HBox prefHeight="46.0" prefWidth="455.0">
+                                       <children>
+                                          <Label prefHeight="113.0" prefWidth="175.0" styleClass="semiMedium-size-font" text="วิธีการจัดการ :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="136.0" prefWidth="541.0">
+                                       <styleClass>
+                                          <String fx:value="how-to-box" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label fx:id="howToLabel" alignment="TOP_LEFT" prefHeight="218.0" prefWidth="455.0" styleClass="semiMedium-size-font" text="-" wrapText="true">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets right="8.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="382.0">
+                                       <children>
+                                          <Label prefHeight="100.0" prefWidth="76.0" styleClass="semiMedium-size-font" text="สถานะ :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="statusLabel" layoutX="15.0" layoutY="10.0" prefHeight="46.0" prefWidth="202.0" styleClass="semiMedium-size-font" text="-">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="354.0" prefHeight="48.0" prefWidth="382.0">
+                                       <children>
+                                          <Label prefHeight="48.0" prefWidth="83.0" styleClass="semiMedium-size-font" text="ผู้ร้องเรียน :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="userLabel" layoutX="15.0" layoutY="10.0" prefHeight="80.0" prefWidth="202.0" styleClass="semiMedium-size-font" text="-">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="20.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="12.0" />
+               </padding>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

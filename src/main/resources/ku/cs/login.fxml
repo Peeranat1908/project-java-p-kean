@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" styleClass="background1" stylesheets="@style/light_mode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.LoginController">
+    <children>
+        <BorderPane prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="115.0" prefWidth="376.0" styleClass="txt" stylesheets="@style/light_mode.css">
+                            <children>
+                                <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="34.0" styleClass="lock-icon" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_LEFT" prefHeight="72.0" prefWidth="376.0">
+                            <children>
+                                <Label fx:id="usernameLabel" text="ชื่อผู้ใช้">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="usernameTextField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="240.0" promptText="Username">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="transparent" />
+                                        <String fx:value="text-field2" />
+                                    </styleClass>
+                                    <HBox.margin>
+                                        <Insets left="25.0" />
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="9.0" prefWidth="376.0">
+                            <children>
+                                <Label fx:id="passwordLabel" text="รหัสผ่าน">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Label>
+                                <AnchorPane prefHeight="40.0" prefWidth="240.0">
+                                    <children>
+                                        <PasswordField fx:id="passwordHidden" layoutX="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="240.0" promptText="Password">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                            <styleClass>
+                                                <String fx:value="transparent" />
+                                                <String fx:value="text-field2" />
+                                            </styleClass>
+                                        </PasswordField>
+                                        <TextField fx:id="passwordTextField" layoutX="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="240.0" promptText="Password" stylesheets="@style/light_mode.css" visible="false">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                 <styleClass>
+                                    <String fx:value="text-field2" />
+                                    <String fx:value="transparent" />
+                                 </styleClass>
+                                        </TextField>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </AnchorPane>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="35.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="341.0">
+                            <children>
+                                <CheckBox fx:id="checkBox" mnemonicParsing="false" onAction="#changeVisibility" text="แสดงรหัสผ่าน" />
+                                <Label fx:id="errorLabel" styleClass="error-label" text="Label">
+                                    <HBox.margin>
+                                        <Insets left="60.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="35.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="38.0" prefWidth="376.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="40.0" prefWidth="313.0" styleClass="button2" text="เข้าสู่ระบบ" />
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="376.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="40.0" prefWidth="313.0" styleClass="button2" text="สมัครสมาชิก" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="86.0" prefWidth="375.0">
+                            <children>
+                                <VBox alignment="BOTTOM_RIGHT" prefHeight="58.0" prefWidth="201.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="27.0" prefWidth="30.0" styleClass="about-icon" />
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets bottom="7.0" left="20.0" />
+                                    </HBox.margin>
+                                </VBox>
+                                <VBox alignment="BOTTOM_CENTER" prefHeight="80.0" prefWidth="18.0">
+                                    <children>
+                                        <Line endY="40.0" strokeWidth="1.5" styleClass="line" />
+                                    </children>
+                                </VBox>
+                                <VBox alignment="BOTTOM_LEFT" prefHeight="73.0" prefWidth="36.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#handleHowToButton" prefHeight="26.0" prefWidth="22.0" styleClass="guide-icon" />
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets bottom="7.0" />
+                                    </HBox.margin>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+            <left>
+                <AnchorPane prefHeight="500.0" prefWidth="325.0" styleClass="background2" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="BOTTOM_LEFT" layoutX="37.0" layoutY="8.0" prefHeight="60.0" prefWidth="325.0" AnchorPane.bottomAnchor="440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#changeMode" prefWidth="15.0" styleClass="transparent">
+                                    <graphic>
+                                        <ImageView fx:id="modeImage" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="14.0" left="7.0" />
+                            </padding>
+                        </HBox>
+                    </children></AnchorPane>
+            </left>
+        </BorderPane>
+    </children>
+</AnchorPane>

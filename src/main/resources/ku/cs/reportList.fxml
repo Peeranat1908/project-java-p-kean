@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parentBox" onMousePressed="#click" prefHeight="162.0" prefWidth="158.0" stylesheets="@style/light_mode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.staff.ReportListController">
+    <children>
+        <VBox alignment="CENTER" layoutX="80.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="225.0">
+                    <children>
+                        <Label fx:id="categoryLabel" alignment="CENTER" prefHeight="27.0" prefWidth="133.0" text="หมวดหมู่" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma" size="12.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="category-box-reportBox" />
+                                <String fx:value="font-bold" />
+                            </styleClass>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="28.0" prefWidth="225.0">
+                    <children>
+                        <Label fx:id="dateReportLabel" prefHeight="22.0" prefWidth="138.0" styleClass="dateReport-label" text="dateReportLabel">
+                            <font>
+                                <Font name="Tahoma" size="12.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <HBox prefHeight="88.0" prefWidth="158.0">
+                    <children>
+                        <Label fx:id="detailReportLabel" alignment="TOP_LEFT" prefHeight="74.0" prefWidth="139.0" styleClass="title-label" text="เรื่องที่ร้องเรียน">
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <styleClass>
+        <String fx:value="report-item" />
+        <String fx:value="shadow" />
+    </styleClass>
+</AnchorPane>

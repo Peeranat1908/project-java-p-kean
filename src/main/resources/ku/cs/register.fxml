@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.image.ImageView?>
+<AnchorPane fx:id="parent" prefHeight="500.0" prefWidth="700.0" styleClass="background1" stylesheets="@style/light_mode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.RegisterController">
+    <children>
+        <BorderPane prefHeight="721.0" prefWidth="963.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <left>
+                <AnchorPane prefHeight="500.0" prefWidth="325.0" styleClass="background2" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="BOTTOM_LEFT" layoutX="37.0" layoutY="8.0" prefHeight="60.0" prefWidth="325.0" AnchorPane.bottomAnchor="440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#changeMode" prefWidth="15.0" styleClass="transparent">
+                                    <graphic>
+                                        <ImageView fx:id="modeImage" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="14.0" left="7.0" />
+                            </padding>
+                        </HBox>
+                    </children></AnchorPane>
+            </left>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="105.0" prefWidth="375.0">
+                            <children>
+                                <Label text="สมัครสมาชิก">
+                                    <font>
+                                        <Font size="31.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="15.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="638.0">
+                            <children>
+                                <Label text="ชื่อผู้ใช้" />
+                            </children>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="638.0">
+                            <children>
+                                <TextField fx:id="usernameTextField" prefHeight="30.0" prefWidth="300.0" promptText="Username" styleClass="text-field2">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Label fx:id="usernameErrorLabel">
+                                    <HBox.margin>
+                                        <Insets left="1.0" />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="638.0">
+                            <children>
+                                <Label text="รหัสผ่าน" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="638.0">
+                            <children>
+                                <TextField fx:id="passwordTextField" prefHeight="30.0" prefWidth="300.0" promptText="Password" styleClass="text-field2">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Label fx:id="passwordErrorLabel" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="638.0">
+                            <children>
+                                <Label text="ยืนยันรหัสผ่าน" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="375.0">
+                            <children>
+                                <TextField fx:id="confirmPasswordTextField" prefHeight="30.0" prefWidth="300.0" promptText="Confirm Password" styleClass="text-field2">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="638.0">
+                            <children>
+                                <Label text="ชื่อผู้ใช้ในระบบ" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="60.0" prefWidth="375.0">
+                            <children>
+                                <TextField fx:id="nameTextField" prefHeight="30.0" prefWidth="300.0" promptText="Name" styleClass="text-field2">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="46.0" prefWidth="375.0">
+                            <children>
+                                <Label fx:id="errorLabel" styleClass="error-label">
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="65.0" prefWidth="375.0">
+                            <children>
+                                <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="40.0" prefWidth="300.0" styleClass="button2" text="สมัครสมาชิก" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" />
+                            </padding>
+                        </HBox>
+                        <HBox prefHeight="104.0" prefWidth="375.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#handleBackButton" prefHeight="40.0" prefWidth="300.0" styleClass="button2" text="ย้อนกลับ" />
+                            </children>
+                            <padding>
+                                <Insets left="35.0" top="3.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

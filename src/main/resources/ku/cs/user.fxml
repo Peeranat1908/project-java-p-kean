@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" prefHeight="768.0" prefWidth="1024.0" styleClass="background" stylesheets="@style/userLight.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.app.controller.UserController">
+   <children>
+      <BorderPane layoutX="112.0" layoutY="131.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="80.0" prefWidth="1024.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="userProfileButton" layoutX="942.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleUserProfileButton" onMouseEntered="#handleUserButtonEnter" onMouseExited="#handleUserButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="user-button" stylesheets="@style/userDark.css" textFill="#514e4e" />
+                  <Label fx:id="UserProfileButtonText" layoutX="931.0" layoutY="60.0" styleClass="user-button-text" text="ข้อมูลผู้ใช้" textFill="#b2b2b5" visible="false" />
+                  <TextField fx:id="searchTextField" layoutX="358.0" layoutY="21.0" onKeyTyped="#handleOnType" prefHeight="38.0" prefWidth="302.0" promptText="ค้นหาคำร้องเรียน" styleClass="search-text-fill-background">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                  </TextField>
+                  <Button alignment="CENTER" layoutX="39.0" layoutY="23.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="26.0" prefWidth="16.0" styleClass="back-button" textFill="#514e4e">
+                     <font>
+                        <Font name="Tahoma" size="30.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="27.0" layoutY="53.0" text="ย้อนกลับ" textFill="#b2b2b5" />
+                  <Button fx:id="MenuCreateReportButton" layoutX="856.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleCreateReportButton" onMouseEntered="#handleCreateReportButtonEnter" onMouseExited="#handleCreateReportButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="create-report-button" stylesheets="@style/userDark.css" />
+                  <Label fx:id="CreateReportButtonText" layoutX="833.0" layoutY="60.0" onMouseClicked="#handleCreateReportButton" styleClass="create-report-text" stylesheets="@style/userDark.css" text="สร้างคำร้องเรียน" textFill="#b2b2b5" visible="false" />
+                  <Button id="FilterButton" fx:id="FilterButton" layoutX="698.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleFilterButton" onMouseEntered="#handleFilterButtonEnter" onMouseExited="#handleFilterButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="filter-button" stylesheets="@style/userDark.css">
+                     <font>
+                        <Font name="Noto Sans Thai Regular" size="12.0" />
+                     </font></Button>
+                  <Label fx:id="FilterButtonText" layoutX="693.0" layoutY="59.0" styleClass="filter-button-text" stylesheets="@style/userDark.css" text="ตัวกรอง" textFill="#b2b2b5" visible="false">
+                     <opaqueInsets>
+                        <Insets top="-6.0" />
+                     </opaqueInsets></Label>
+                  <Button layoutX="297.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeMode" prefWidth="15.0" styleClass="transparent">
+                     <graphic>
+                        <ImageView fx:id="modeImage" fitHeight="32.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/sun.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <ScrollPane id="ReportListPane" fx:id="ReportListPane" hbarPolicy="NEVER" hmax="0.0" prefHeight="302.0" prefWidth="724.0" styleClass="background" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <opaqueInsets>
+                  <Insets top="50.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
+               <content>
+                  <VBox fx:id="reportContainer" alignment="TOP_CENTER" spacing="20.0" styleClass="background">
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </center>
+         <left>
+            <Pane prefHeight="80.0" prefWidth="150.0" styleClass="background" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <Pane prefHeight="100.0" prefWidth="1024.0" styleClass="background" BorderPane.alignment="CENTER" />
+         </bottom>
+         <right>
+            <Pane prefHeight="80.0" prefWidth="150.0" styleClass="background" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+      <AnchorPane id="FilterMenuPane" fx:id="FilterMenuPane" layoutX="610.0" layoutY="78.0" prefHeight="585.0" prefWidth="354.0" visible="false">
+         <children>
+            <Pane fx:id="FilterMenuPaneLeft" layoutX="-194.0" layoutY="14.0" prefHeight="296.0" prefWidth="285.0" styleClass="filter-background">
+               <children>
+                  <Label layoutX="39.0" layoutY="13.0" styleClass="report-title" text="เวลาในการร้องเรียน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="79.0" styleClass="report-title" text="จำนวนการโหวต">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="178.0" styleClass="report-title" text="ขั้นตอนในการดำเนินงาน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="35.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleDateFilter" prefHeight="29.0" prefWidth="76.0" styleClass="date-box" text="ล่าสุด">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="126.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleDateFilter" prefHeight="29.0" prefWidth="76.0" styleClass="date-box" text="เก่าสุด">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="36.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleLikeFilter" prefHeight="29.0" prefWidth="76.0" styleClass="completed-box" text="มากสุด">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="126.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleLikeFilter" prefHeight="29.0" prefWidth="76.0" styleClass="completed-box" text="น้อยสุด">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="31.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleClickFilterButton" prefHeight="29.0" prefWidth="76.0" styleClass="status-finish" text="เสร็จสิ้น">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="30.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleClickFilterButton" prefHeight="29.0" prefWidth="162.0" styleClass="status-inprogress" text="อยู่ระหว่างดำเนินการ">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="126.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleClickFilterButton" prefHeight="29.0" prefWidth="115.0" styleClass="status-waiting" text="ยังไม่รับเรื่อง">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="likeMinAmountFilter" alignment="CENTER" layoutX="34.0" layoutY="143.0" prefHeight="29.0" prefWidth="79.0" promptText="ค่าต่ำสุด" styleClass="search-text-fill-background">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="likeMaxAmountFilter" alignment="CENTER" layoutX="125.0" layoutY="143.0" prefHeight="29.0" prefWidth="79.0" promptText="ค่าสูงสุด" styleClass="search-text-fill-background">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="minMaxAmountSearchButton" layoutX="210.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleMinMaxLikeFilter" prefHeight="29.0" prefWidth="65.0" styleClass="completed-box" text="ค้นหา">
+                     <font>
+                        <Font name="Tahoma Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="FilterMenuPaneRight" layoutX="102.0" layoutY="14.0" prefHeight="296.0" prefWidth="285.0" styleClass="filter-background">
+               <children>
+                  <Label layoutX="39.0" layoutY="13.0" styleClass="report-title" text="หมวดหมู่">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="categoryListViewFilter" layoutX="39.0" layoutY="42.0" onMouseClicked="#handleCategorySelectFilter" prefHeight="186.0" prefWidth="216.0" styleClass="detail-background" />
+                  <Button layoutX="155.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleClickFilterButton" prefHeight="35.0" prefWidth="115.0" styleClass="reported-box" text="ลบตัวกรองออก">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="UserAccountReportFilterButton" layoutX="21.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleUserAccountReportFilter" prefHeight="29.0" prefWidth="127.0" styleClass="completed-box" text="รายงานของฉัน">
+                     <font>
+                        <Font name="Tahoma Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="CreateReportPane" fx:id="CreateReportPane" layoutX="110.0" layoutY="118.0" prefHeight="575.0" prefWidth="802.0" visible="false">
+         <children>
+            <Pane layoutX="11.0" layoutY="9.0" prefHeight="554.0" prefWidth="782.0" styleClass="report-post-box">
+               <children>
+                  <Label layoutX="50.0" layoutY="41.0" styleClass="report-title" text="หัวเรื่อง">
+                     <font>
+                        <Font name="Tahoma Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="96.0" styleClass="report-title" text="หมวดหมู่เรื่องร้องเรียน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="createTitleReportField" layoutX="154.0" layoutY="37.0" prefHeight="38.0" prefWidth="432.0" styleClass="detail-background">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="235.0" layoutY="96.0" styleClass="report-title" text="รายละเอียดเรื่องร้องเรียน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="createDetailReportArea" layoutX="235.0" layoutY="119.0" prefHeight="249.0" prefWidth="525.0" styleClass="detail-background">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextArea>
+                  <ListView fx:id="reportCreateCategoryListView" layoutX="62.0" layoutY="122.0" onMouseClicked="#handleSelectCategory" prefHeight="249.0" prefWidth="140.0" styleClass="detail-background" />
+                  <Button fx:id="createReportButton" layoutX="663.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleCreateButton" styleClass="completed-box" text="สร้างรายงาน">
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font></Button>
+                  <Label fx:id="FirstExtraDetailTitle" layoutX="50.0" layoutY="388.0" styleClass="report-title" text="FirstExtraDetailTitle" visible="false">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SecondExtraDetailTitle" layoutX="307.0" layoutY="388.0" styleClass="report-title" text="SecondExtraDetailTitle" visible="false">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ThirdExtraDetailTitle" layoutX="582.0" layoutY="388.0" styleClass="report-title" text="ThirdExtraDetailTitle" visible="false">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="FourthExtraDetailTitle" layoutX="50.0" layoutY="472.0" styleClass="report-title" text="FourthExtraDetailTitle" visible="false">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="unSelectCategoryLabel" layoutX="522.0" layoutY="503.0" text="กรุณาเลือกหมวดหมู่!" textFill="#da1b1b" visible="false">
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="CloseCreateReportButton" layoutX="731.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleCloseCreateReportButton" onMouseEntered="#handleCloseButtonEnter" onMouseExited="#handleCloseButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="close-button" stylesheets="@style/userLight.css" />
+            <Label fx:id="CloseCreateReportButtonText" layoutX="711.0" layoutY="91.0" styleClass="report-title" text="ปิดหน้าต่างนี้" textFill="#b2b2b5" visible="false" />
+            <TextField fx:id="firstExtraDetail" layoutX="70.0" layoutY="433.0" prefHeight="29.0" prefWidth="178.0" styleClass="detail-background" visible="false" />
+            <TextField fx:id="secondExtraDetail" layoutX="329.0" layoutY="433.0" prefHeight="29.0" prefWidth="200.0" styleClass="detail-background" visible="false" />
+            <TextField fx:id="thirdExtraDetail" layoutX="602.0" layoutY="433.0" prefHeight="29.0" prefWidth="178.0" styleClass="detail-background" visible="false" />
+            <TextField fx:id="fourthExtraDetail" layoutX="70.0" layoutY="514.0" prefHeight="29.0" prefWidth="178.0" styleClass="detail-background" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="ReportViewPane" fx:id="ReportViewPane" layoutX="110.0" layoutY="118.0" prefHeight="575.0" prefWidth="802.0" visible="false">
+         <children>
+            <Pane id="ReportPane" layoutX="-1.0" layoutY="1.0" prefHeight="575.0" prefWidth="802.0" styleClass="report-post-box">
+               <children>
+                  <Label layoutX="39.0" layoutY="13.0">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="41.0" styleClass="report-title" text="หัวเรื่อง">
+                     <font>
+                        <Font name="Tahoma Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="96.0" styleClass="report-title" text="หมวดหมู่เรื่องร้องเรียน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="607.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleInformAbuseButton" prefHeight="29.0" prefWidth="136.0" styleClass="reported-box" text="รายงานโพสต์นี้">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font></Button>
+                  <TextField fx:id="titleLabel" editable="false" layoutX="154.0" layoutY="37.0" prefHeight="38.0" prefWidth="432.0" styleClass="search-text-fill-background" text="ทดสอบหัวเรื่อง">
+                     <opaqueInsets>
+                        <Insets left="10.0" />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Tahoma" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="235.0" layoutY="96.0" styleClass="report-title" text="รายละเอียดเรื่องร้องเรียน">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="CloseReportViewButton" layoutX="722.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleCloseReportViewButton" onMouseEntered="#handleCloseViewButtonEnter" onMouseExited="#handleCloseViewButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="close-button" />
+                  <Label fx:id="CloseReportViewButtonText" layoutX="701.0" layoutY="81.0" styleClass="report-title" text="ปิดหน้าต่างนี้" textFill="#b2b2b5" visible="false" />
+                  <Label fx:id="categoryLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="124.0" prefHeight="30.0" prefWidth="138.0" styleClass="genre-box" text="หมวดหมู่ 1" textAlignment="CENTER" textFill="#752590" textOverrun="CLIP">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="detailReportLabel" editable="false" layoutX="230.0" layoutY="119.0" prefHeight="224.0" prefWidth="525.0" styleClass="detail-background" />
+                  <Button fx:id="ReportInfoLikeButton" layoutX="645.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleLikeButtonInReportInfo" onMouseEntered="#handleLikeButtonEnter" onMouseExited="#handleLikeButtonExit" prefHeight="26.0" prefWidth="26.0" styleClass="thumbs-ups" />
+                  <Label fx:id="likeAmountLabel" alignment="CENTER" layoutX="614.0" layoutY="76.0" prefHeight="18.0" prefWidth="88.0" styleClass="report-title" text="555555">
+                     <font>
+                        <Font name="Tahoma" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateLabel" layoutX="400.0" layoutY="96.0" styleClass="report-title" text="วันที่ 15/10/2022   24:00:00">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statusLabel" layoutX="601.0" layoutY="96.0" styleClass="report-title" text="สถานะ เสร็จสิ้น">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="howToTextArea" editable="false" layoutX="230.0" layoutY="376.0" prefHeight="42.0" prefWidth="525.0" styleClass="detail-background" />
+                  <Label layoutX="230.0" layoutY="349.0" styleClass="report-title" text="วิธีการจัดการ">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="FirstExtraViewDetailTitle" layoutX="60.0" layoutY="424.0" styleClass="report-title" text="FirstExtraDetailTitle">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="SecondExtraViewDetailTitle" layoutX="317.0" layoutY="424.0" styleClass="report-title" text="SecondExtraDetailTitle">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="ThirdExtraViewDetailTitle" layoutX="592.0" layoutY="424.0" styleClass="report-title" text="ThirdExtraDetailTitle">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="FourthExtraViewDetailTitle" layoutX="60.0" layoutY="489.0" styleClass="report-title" text="FourthExtraDetailTitle">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstExtraViewDetail" editable="false" layoutX="60.0" layoutY="449.0" prefHeight="29.0" prefWidth="178.0" styleClass="search-text-fill-background" />
+            <TextField fx:id="secondExtraViewDetail" editable="false" layoutX="319.0" layoutY="449.0" prefHeight="29.0" prefWidth="200.0" styleClass="search-text-fill-background" />
+            <TextField fx:id="thirdExtraViewDetail" editable="false" layoutX="592.0" layoutY="449.0" prefHeight="29.0" prefWidth="178.0" styleClass="search-text-fill-background" />
+            <TextField fx:id="fourthExtraViewDetail" editable="false" layoutX="60.0" layoutY="511.0" prefHeight="29.0" prefWidth="178.0" styleClass="search-text-fill-background" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="ReportViewPane" fx:id="ChooseReportUser" layoutX="120.0" layoutY="128.0" prefHeight="575.0" prefWidth="802.0" visible="false">
+         <children>
+            <Pane id="ReportPane" layoutX="-13.0" layoutY="-10.0" prefHeight="575.0" prefWidth="802.0" styleClass="report-post-box">
+               <children>
+                  <Label layoutX="39.0" layoutY="13.0">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="198.0" layoutY="110.0" styleClass="reported-title" text="รายงานโพสต์นี้!!">
+                     <font>
+                        <Font name="Tahoma Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="333.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleReportInformAbuseButton" prefHeight="29.0" prefWidth="136.0" styleClass="reported-box" text="รายงานโพสต์นี้">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="CloseReportedViewButton" layoutX="722.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleCloseReportedViewButton" onMouseEntered="#handleCloseViewReportedButtonEnter" onMouseExited="#handleCloseViewReportedButtonExit" prefHeight="25.0" prefWidth="25.0" styleClass="close-button" />
+                  <Label fx:id="CloseReportedViewButtonText" layoutX="697.0" layoutY="81.0" styleClass="report-title" text="ปิดหน้าต่างนี้" textFill="#b2b2b5" visible="false" />
+                  <Label fx:id="FirstExtraViewDetailTitle11" layoutX="278.0" layoutY="233.0" styleClass="report-title" text="คุณจะรายงานโพสต์นี้หรือรายงานผู้ใช้ระบบ">
+                     <font>
+                        <Font name="Tahoma Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="333.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleUserInformAbuseButton" prefHeight="29.0" prefWidth="136.0" styleClass="reported-box" text="รายงานผู้ใช้ระบบ">
+                     <font>
+                        <Font name="Tahoma Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
